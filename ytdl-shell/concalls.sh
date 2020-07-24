@@ -1,0 +1,1 @@
+youtube-dl -ciw -a pl_concall.txt -o "/home/pi/files/Downloads/ytdl/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" --format=bestaudio[ext=m4a] --write-thumbnail --write-info-json --write-automatic-sub
