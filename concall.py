@@ -1,5 +1,11 @@
+# Conference call audio downloader for indian equities 
+# Powered by the Youtube channel : Trendlyne
+# Uses: git@github.com:jansenicus/vtt-to-srt.py.git
 import youtube_dl
-# git@github.com:jansenicus/vtt-to-srt.py.git
+from vtt_to_srt import vtts_to_srt
+
+DOWNLOAD_DIRECTORY ='/home/pi/ytvideos/trendlyne' 
+
 
 class MyLogger(object):
     def debug(self, msg):
@@ -31,7 +37,7 @@ def download_video(url):
         # }],
         'logger': MyLogger(),
         'progress_hooks': [my_hook],
-        'outtmpl': '~/ytvideos/%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
+        'outtmpl': f'{DOWNLOAD_DIRECTORY}/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s',
         'ignoreerrors':True,
         'continuedl': True,
         'writethumbnail': True,
@@ -47,5 +53,6 @@ if __name__=='__main__':
     # Q320
     # download_video('https://www.youtube.com/playlist?list=PLE25ZovyAdMdOFj-eclPLvdeUvgkQZqhQ')
     #Q420
-    download_video('https://www.youtube.com/playlist?list=PLE25ZovyAdMdOFj-eclPLvdeUvgkQZqhQ')
+    # download_video('https://www.youtube.com/playlist?list=PLE25ZovyAdMdOFj-eclPLvdeUvgkQZqhQ')
     #Q121
+    vtts_to_srt(DOWNLOAD_DIRECTORY, rec=True) # Recursive True
