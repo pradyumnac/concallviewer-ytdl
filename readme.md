@@ -12,3 +12,6 @@ Downloads conference calls through Trendlyne - Youtube channel and saves locally
     `install.bat` or `install.sh`
 * Activate virtualenv
 * Run `python concallviewer.py`
+
+# Note
+Now shell grabs from channel videos direct, be mindful of other videos in channel in actual use
